@@ -47,13 +47,13 @@ In order to better understand the curvature, we can transform the image into bir
 
 First we highlight a trapezoid in the image, which should be a rectangle in the real world. Then we get a set of parameter for transform this trapezoid into a rectangle.
 
-![png](CarND-Advanced-Lane-Lines/output_6_0.png)
+![png](CarND-Advanced-Lane-Lines/output_7_0.png)
 
 We can now use these parameter to transform any image from this camera into bird's eye view.
 
 After transformation, the image should looks like we are look from the sky down to the road, and it's easy to tell the curvature of the road.
 
-![png](CarND-Advanced-Lane-Lines/output_7_0.png)
+![png](CarND-Advanced-Lane-Lines/output_8_0.png)
 
 ### Thresholds
 The bird's eye view images may contains noises that are not belonged to the lane lines, such as shadows. Because we do only interested in the lane lines, we need to filter out all those noise not belonged to lane lines.
@@ -83,7 +83,7 @@ The car should be driving within the lane lines, which means the lane lines shou
 
 _Gradient threshold is marked as blue in the figure._
 
-![png](CarND-Advanced-Lane-Lines/output_10_0.png)
+![png](CarND-Advanced-Lane-Lines/output_11_0.png)
 
 ### Sliding Window Search
 After applying the threshold, the colored pixels on the images are all possible pixels of lane lines. We have to find the lane lines from these pixels.
@@ -99,11 +99,11 @@ At the end, we have eighteen areas that might contains pixels of lane lines.
 ### Measuring Curvature
 The pixels in these eighteen areas are belonged to lane lines, so we plot a curve that fits these pixels. The curve should be the lane line we are finding.
 
-![png](CarND-Advanced-Lane-Lines/output_14_1.png)
+![png](CarND-Advanced-Lane-Lines/output_18_1.png)
 
 In order to visualize the result, we highlight the lane lines in the bird's eye view images, then undo the perspective transform. Now we have highlight the lane lines in the real word space.
 
-![png](CarND-Advanced-Lane-Lines/output_16_1.png)
+![png](CarND-Advanced-Lane-Lines/output_20_1.png)
 
 
 ## Pipeline (video)
@@ -111,7 +111,7 @@ The lane line detection we mentioned above might not work in every frame. For ex
 
 However, video input is continuous. We know that the curvature and position of lane lines between two continuous frames are similar. We can use the detection result of previous frames to calibrate the output of current frame. We can get the final output by weight average results of previous frame and current frame.
 
-The final output is uploaded to [YouTube](https://youtu.be/CvE-eI5DcUs)
+The final output is uploaded to [YouTube](https://youtu.be/4OMCYHLmrTw)
 
 ## Discussion
 I have tried my program on challenge videos, and the output doesn't look good.
